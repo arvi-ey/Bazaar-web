@@ -71,6 +71,7 @@ function Signin() {
                         label="Password"
                         variant="outlined"
                         onChange={OnTextChange}
+                        type="password"
                     />
                     {loading ?
                         <div className={`w-full flex items-center justify-center `} >
