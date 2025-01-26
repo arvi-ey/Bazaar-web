@@ -31,7 +31,7 @@ import { AppDispatch } from '../../../Redux/Store';
 import { AddProduct, DeleteProduct, GetAllProducts, GetProduct, UpdateProduct, UpdateProductData } from "../../../Redux/Slice/productsSlicer"
 import SnackBar from '../../Common/Snackbar';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { GetAllOrders, OrderData,UpdateData, UpdateOrder } from '../../../Redux/Slice/orderSlicer';
+import { GetAllOrders, OrderData, UpdateData, UpdateOrder } from '../../../Redux/Slice/orderSlicer';
 
 export default function index() {
     const dispatch = useDispatch<AppDispatch>();
@@ -51,7 +51,7 @@ export default function index() {
         image: "",
         productTitle: "",
         paymentMode: "",
-        
+
 
     });
     const [searchText, setSearchText] = React.useState<string>('');
@@ -82,12 +82,6 @@ export default function index() {
 
 
 
-    useEffect(() => {
-        console.log("orderItems__", orderItems)
-    }, [orderItems])
-
-
-
     const handleOpenEditDialog = (row: typeof currentRow, index: number) => {
         setSelectPaymentStatus(row.paymentStatus)
         setselectOrderStaus(row.orderStatus)
@@ -103,22 +97,16 @@ export default function index() {
 
     const handleSave = async () => {
         if (isEditMode && editingIndex !== null) {
-            const obj:UpdateData  = {
+            const obj: UpdateData = {
                 _id: currentRow._id,
-                paymentStatus:SelectPaymentStatus,
+                paymentStatus: SelectPaymentStatus,
                 orderStatus: selectOrderStaus,
-                
+
             }
             const { _id } = currentRow;
-            console.log(obj)
             const data = await dispatch(UpdateOrder(obj))
             if (data.payload.message) HandleSnackbar(data.payload.message)
         }
-        // else {
-        //     const data = await dispatch(AddProduct(obj));
-        //     if (data.payload.message) HandleSnackbar(data.payload.message)
-        //     setImage({ img1: "", img2: "", img3: "" })
-        // }
         handleClose();
     };
 
@@ -269,10 +257,10 @@ export default function index() {
             <Dialog open={open} onClose={handleClose} >
                 <DialogTitle>{isEditMode ? 'Edit Order' : 'Add New Order'}</DialogTitle>
                 <DialogContent  >
-                    <FormControl fullWidth style={{marginTop:"50px"}}>
+                    <FormControl fullWidth style={{ marginTop: "50px" }}>
                         <InputLabel id="demo-simple-select-label">Select Payment Status</InputLabel>
                         <Select
-                            style={{width:"500px"}}
+                            style={{ width: "500px" }}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             value={SelectPaymentStatus}
@@ -285,10 +273,10 @@ export default function index() {
 
                         </Select>
                     </FormControl>
-                    <FormControl fullWidth style={{marginTop:"50px"}}>
+                    <FormControl fullWidth style={{ marginTop: "50px" }}>
                         <InputLabel id="demo-simple-select-label">Select Order Status</InputLabel>
                         <Select
-                            style={{width:"500px"}}
+                            style={{ width: "500px" }}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             value={selectOrderStaus}

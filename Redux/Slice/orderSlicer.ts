@@ -75,7 +75,7 @@ export const UpdateOrder = createAsyncThunk(
         }
         console.log(data)
         try {
-            const response = await axios.patch(URL + `order/updateorder/${data._id}`, requestbody )
+            const response = await axios.patch(URL + `order/updateorder/${data._id}`, requestbody)
             if (response.data && response.data.success === true) return response.data.data
         }
         catch (error: any) {
@@ -137,14 +137,13 @@ export const orderSlice = createSlice({
 
             })
             .addCase(UpdateOrder.fulfilled, (state, action) => {
-                if (state.orderItems.length > 1) {
-                    const upDateddata = state.orderItems.map(data =>
-                        data._id === action.payload._id ? action.payload : data
-                    )
-                    if (upDateddata)
-                        state.orderItems = upDateddata
-                }
+                state.loading = false;
+                const updatedOrder = action.payload;
+                state.orderItems = state.orderItems.map((order) =>
+                    order._id === updatedOrder._id ? { ...order, ...updatedOrder } : order
+                );
             })
+
 
     }
 })
