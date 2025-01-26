@@ -14,16 +14,6 @@ const fontSize = 'medium'
 
 export const RouteData = [
     {
-        icon: <BarChartIcon {...commonStyle} fontSize={fontSize} />,
-        text: 'Analytics',
-        route: "",
-    },
-    {
-        icon: <PersonOutlineOutlinedIcon {...commonStyle} fontSize={fontSize} />,
-        text: 'Users',
-        route: 'user'
-    },
-    {
         icon: <Inventory2OutlinedIcon {...commonStyle} fontSize={fontSize} />,
         text: 'Product',
         route: 'product'
@@ -42,6 +32,16 @@ export const RouteData = [
         icon: <CategoryIcon {...commonStyle} fontSize={fontSize} />,
         text: 'Category',
         route: 'category'
+    },
+    {
+        icon: <BarChartIcon {...commonStyle} fontSize={fontSize} />,
+        text: 'Analytics',
+        route: "",
+    },
+    {
+        icon: <PersonOutlineOutlinedIcon {...commonStyle} fontSize={fontSize} />,
+        text: 'Users',
+        route: 'user'
     },
     {
         icon: <SettingsIcon {...commonStyle} fontSize={fontSize} />,
