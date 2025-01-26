@@ -44,15 +44,15 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Analytics />
+            element: <Product />
           },
           {
             path: 'banner',
             element: <Banner />
           },
           {
-            path: 'product',
-            element: <Product />
+            path: 'analytics',
+            element: <Analytics />
           },
           {
             path: 'order',

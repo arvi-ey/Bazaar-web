@@ -16,7 +16,7 @@ export const RouteData = [
     {
         icon: <Inventory2OutlinedIcon {...commonStyle} fontSize={fontSize} />,
         text: 'Product',
-        route: 'product'
+        route: ''
     },
     {
         icon: <ProductionQuantityLimitsOutlinedIcon {...commonStyle} fontSize={fontSize} />,
@@ -36,7 +36,7 @@ export const RouteData = [
     {
         icon: <BarChartIcon {...commonStyle} fontSize={fontSize} />,
         text: 'Analytics',
-        route: "",
+        route: "analytics",
     },
     {
         icon: <PersonOutlineOutlinedIcon {...commonStyle} fontSize={fontSize} />,
